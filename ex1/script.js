@@ -11,4 +11,13 @@ function fibs(n) {
     return out;
 }
 
-console.log(fibs(8));
+function fibsRec(n) {
+    if (n <= 0 || typeof n !== "number") return "Invalid input!"; 
+
+    if (n === 1) return [0];
+    if (n === 2) return [0, 1];
+
+    return [...fibsRec(n - 1), fibsRec(n - 1)[n - 3] + fibsRec(n - 1)[n - 2]];
+}
+
+console.log(fibsRec(8));
